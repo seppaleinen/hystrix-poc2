@@ -56,6 +56,7 @@ public class CompositeIntegration {
                 response = restTemplate.getForEntity(url, String.class);
 
             } catch (Exception e) {
+                lastError = e;
                 LOG.warn("Failed to get response: " + e.getMessage());
                 retries++;
             }
