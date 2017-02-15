@@ -9,6 +9,8 @@ services:
       - config-server
       - service-1
       - service-2
+    deploy:
+      replicas: 1
 
   service-1:
     image: local/service-1
@@ -19,11 +21,20 @@ services:
       - zipkin-server
       - rabbitmq
       - auth-server
+    deploy:
+      replicas: 1
 
   service-2:
     image: local/service-2
     depends_on:
       - config-server
+      - edge-server
+      - monitor-dashboard
+      - zipkin-server
+      - rabbitmq
+      - auth-server
+    deploy:
+      replicas: 1
 
   edge-server:
     image: local/edge-server
@@ -32,11 +43,15 @@ services:
     depends_on:
       - auth-server
       - rabbitmq
+    deploy:
+      replicas: 1
 
   monitor-dashboard:
     image: local/monitor-dashboard
     ports:
       - "7979:7979"
+    deploy:
+      replicas: 1
 
   zipkin-server:
     image: local/zipkin-server
@@ -44,6 +59,8 @@ services:
       - "9411:9411"
     depends_on:
       - rabbitmq
+    deploy:
+      replicas: 1
 
   config-server:
     image: local/config-server
@@ -51,6 +68,17 @@ services:
       - "8888:8888"
     depends_on:
       - rabbitmq
+    deploy:
+      replicas: 1
+
+  auth-server:
+    image: local/auth-server
+    ports:
+      - "9999:9999"
+    depends_on:
+      - rabbitmq
+    deploy:
+      replicas: 1
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -61,10 +89,5 @@ services:
       - "15671:15671"
       - "15672:15672"
       - "25672:25672"
-
-  auth-server:
-    image: local/auth-server
-    ports:
-      - "9999:9999"
-    depends_on:
-      - rabbitmq
+    deploy:
+      replicas: 1
