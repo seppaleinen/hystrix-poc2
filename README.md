@@ -48,3 +48,16 @@ docker-compose kill;
 # To shut down and remove all services
 docker-compose down;
 ```
+
+
+### DOCKER-COMPOSE/SWARM
+```
+# To build all jars
+gradle clean build -xtest;
+
+# To build all images
+docker-compose -f docker-compose.build.yml build
+
+# To deploy all images to swarm
+docker stack deploy -c docker-compose.stack.yml stack
+```
