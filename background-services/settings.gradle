@@ -1,6 +1,0 @@
-include 'auth-server'
-include 'config-server'
-include 'edge-server'
-include 'monitor-dashboard'
-include 'zipkin-server'
-

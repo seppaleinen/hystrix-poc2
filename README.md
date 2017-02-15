@@ -37,7 +37,7 @@ docker service rm service-1 && docker service rm service-2 && docker service rm 
 ### DOCKER-COMPOSE:
 ```
 # To build all services
-cd background-services && gradle clean build -xtest && cd .. && gradle clean build -xtest;
+gradle clean build -xtest;
 
 # To build and start all services
 docker-compose up --build;
