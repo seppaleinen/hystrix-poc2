@@ -32,3 +32,19 @@ docker service create --replicas 1 --name composite-service  --publish 8080:8080
 # Remove services
 docker service rm service-1 && docker service rm service-2 && docker service rm composite-service; docker system prune -f;
 ```
+
+
+### DOCKER-COMPOSE:
+```
+# To build all services
+cd background-services && gradle clean build -xtest && cd .. && gradle clean build -xtest;
+
+# To build and start all services
+docker-compose up --build;
+
+# To shut down all services
+docker-compose kill;
+
+# To shut down and remove all services
+docker-compose down;
+```
