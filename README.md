@@ -56,8 +56,11 @@ docker-compose down;
 gradle clean build -xtest;
 
 # To build all images
-docker-compose -f docker-compose.build.yml build
+docker-compose build
 
 # To deploy all images to swarm
 docker stack deploy -c docker-compose.stack.yml stack
+
+# To remove swarm stack
+docker stack rm stack
 ```
