@@ -1,5 +1,10 @@
 # hystrix-poc2
 
+### Excercises done:
+* Excercise 1
+* Excercise 2
+
+
 ### To build:
 ```
 gradle build -xtest
@@ -64,3 +69,11 @@ docker stack deploy -c docker-compose.stack.yml stack
 # To remove swarm stack
 docker stack rm stack
 ```
+
+```
+curl -w "\n" localhost:8080/composite-resource/123
+```
+
+### Information
+
+* Rabbitmq admin interface http://localhost:15672/ user/pass guest/guest
