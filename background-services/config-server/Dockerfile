@@ -5,7 +5,7 @@ MAINTAINER Micro Service <micro.service@gmail.com>
 
 EXPOSE 8888
 
-ADD ./build/libs/*.jar app.jar
+ADD ./target/*.jar app.jar
 ADD ./config-repo config-repo
 
 # Regarding settings of java.security.egd, see http://wiki.apache.org/tomcat/HowTo/FasterStartUp#Entropy_Source

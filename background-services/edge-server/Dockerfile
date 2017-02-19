@@ -5,7 +5,7 @@ MAINTAINER Micro Service <micro.service@gmail.com>
 
 EXPOSE 8765
 
-ADD ./build/libs/*.jar app.jar
+ADD ./target/*.jar app.jar
 ADD src/main/resources/truststore.jks truststore.jks
 
 # Regarding settings of java.security.egd, see http://wiki.apache.org/tomcat/HowTo/FasterStartUp#Entropy_Source
