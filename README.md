@@ -77,3 +77,5 @@ curl -w "\n" localhost:8080/composite-resource/123
 ### Information
 
 * Rabbitmq admin interface http://localhost:15672/ user/pass guest/guest
+* Hystrix dashboard http://localhost:7979/
+* 
